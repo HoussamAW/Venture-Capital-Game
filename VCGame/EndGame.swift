@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EndGame: View {
-    @Binding var vm: VCViewModel
+    let vm: VCViewModel
     var body: some View {
         if vm.restartGame {
             ContentView()
@@ -50,6 +50,6 @@ struct EndGame: View {
 }
 
 #Preview {
-    let dummyVM = VCViewModel()
-    EndGame(vm: .constant(dummyVM))
+    let VM = VCViewModel()
+    EndGame(vm:VM)
 }

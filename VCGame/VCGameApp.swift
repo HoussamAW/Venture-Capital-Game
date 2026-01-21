@@ -12,7 +12,7 @@ struct VCGameApp: App {
     @State private var vm = VCViewModel()
     var body: some Scene {
         WindowGroup {
-            HomeView(vm: $vm)
+            HomeView(vm: vm)
         }.windowStyle(.plain)
     }
 }

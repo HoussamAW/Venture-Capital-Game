@@ -14,6 +14,5 @@ struct PitchData: Identifiable {
     var pitchProblem: String
     var pitchSolution: String
     var pitchInvest:Int
-    var currency: String
     
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var vm: VCViewModel
+    let vm: VCViewModel
     var body: some View {
         if vm.showGame {
             ContentView()
@@ -50,6 +50,6 @@ struct HomeView: View {
 
 #Preview {
     let VM = VCViewModel()
-    HomeView(vm: .constant(VM))
+    HomeView(vm:VM)
  
 }
