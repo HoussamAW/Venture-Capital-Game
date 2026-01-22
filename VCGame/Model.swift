@@ -5,7 +5,7 @@
 //  Created by Houssam Dine Abdoul Wahab on 19/01/26.
 //
 
-import Foundation
+import SwiftUI
 
 
 struct PitchData: Identifiable {
@@ -14,5 +14,6 @@ struct PitchData: Identifiable {
     var pitchProblem: String
     var pitchSolution: String
     var pitchInvest:Int
+    var color: Color
     
 }

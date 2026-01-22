@@ -15,19 +15,28 @@ final class VCViewModel {
     var isEnd = false
     var restartGame = false
     var offset: CGSize = .zero
+    let swipeThreshold: CGFloat = 140
+    var backgroundColor : Color {
+        if offset.width > 0 {
+            return .green
+        } else if offset.width < 0 {
+            return .red
+        }
+        return startup[index].color
+    }
     var startup = [
         PitchData(companyName: "ClinicalFlow",
                   pitchProblem:  "Clinics are overwhelmed, staff is expensive.",
                   pitchSolution: "We automate patient intake and billing for small clinics in under 10 minutes.",
-                  pitchInvest: 500),
+                  pitchInvest: 500, color: .purple),
         PitchData(companyName: "ShelfSense",
                   pitchProblem: "convenience stores, small chains.",
                   pitchSolution: "AI that predicts retail stockouts 7 days early using POS + local demand signals",
-                  pitchInvest: 750),
+                  pitchInvest: 750, color: .orange),
         PitchData(companyName: "DevProof",
                   pitchProblem: "hiring teams pay per candidate",
                   pitchSolution: "We verify developers’ skills with real repo-based tests instead of fake coding screens",
-                  pitchInvest: 1)
+                  pitchInvest: 1, color: .yellow)
     ]
     
     func endGame() {
@@ -43,9 +52,8 @@ final class VCViewModel {
         let invest = startup[index]
         totalInvest += invest.pitchInvest
     }
-
+    
     func swipe() {
-        let swipeThreshold: CGFloat = 140
         if offset.width > swipeThreshold {
             offset = CGSize(width: 1000, height: 0)
        
@@ -68,5 +76,6 @@ final class VCViewModel {
         } else {
             offset = .zero
         }
+        
     }
 }

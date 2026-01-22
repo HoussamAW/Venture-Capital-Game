@@ -20,7 +20,7 @@ struct HomeView: View {
                     .glassBackgroundEffect()
                     .padding()
        
-                Text("Welcome to Z Combinator: the Demo Day VC simulator.\n\nFounders pitch in seconds. You decide in one click: Invest or Pass.\n\nYour portfolio lives or dies through hype, pivots, and crashes.\n\nEndgame: ROI score + your verdict, from Unicorn Hunter to Bag Holder.")
+                Text("Welcome to Z Combinator:\nYou’re on the front row of Demo Day.\n\nPitch after pitch, you bet on the future in a single swipe.\n\nSome founders make it big. Others don’t. Your choice: Invest or Pass.\n\nSome founders moon. Others burn.\nYour choices write the story of your fund and your ending: ROI + a brutal label.")
                     .padding(5)
                     .multilineTextAlignment(.center)
                     .frame(width: 320,height: 310)
@@ -32,7 +32,7 @@ struct HomeView: View {
             }
             .padding()
 
-            Button ("Start Game") {
+            Button ("Ready ? click here") {
                 vm.isEnd = true
             }.buttonStyle(.plain)
                 .padding()
