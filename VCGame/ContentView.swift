@@ -49,7 +49,7 @@ struct ContentView: View {
                             
                         }
                             .onEnded { _ in
-                                swipe()
+                                vm.swipe()
                                 
                             }
                         )
@@ -70,46 +70,7 @@ struct ContentView: View {
             .padding(.top,70)
         }
     }
-  
-    private func endGame() {
-        //        index = (index + 1) % vm.startup.count
-        if vm.index < vm.startup.count - 1 {
-            vm.index += 1
-        } else {
-            vm.isEnd = true
-        }
-    }
-    
-    private func invest() {
-        let invest = vm.startup[vm.index]
-        vm.totalInvest += invest.pitchInvest
-    }
-    
-    private func swipe() {
-        let swipeThreshold: CGFloat = 140
-        if vm.offset.width > swipeThreshold {
-            vm.offset = CGSize(width: 1000, height: 0)
-       
-            Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 200_000_000)
-                invest()
-                endGame()
-                vm.offset = .zero
-            }
-            
-        } else if vm.offset.width < -swipeThreshold {
-            vm.offset = CGSize(width: -1000, height: 0)
-            
-            Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 200_000_000)
-                endGame()
-                vm.offset = .zero
-            }
-            
-        } else {
-            vm.offset = .zero
-        }
-    }
+
 }
 
 #Preview(windowStyle: .plain) {

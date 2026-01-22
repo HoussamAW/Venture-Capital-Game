@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     let vm: VCViewModel
     var body: some View {
-        if vm.showGame {
+        if vm.isEnd {
             ContentView()
         } else {
             VStack {
@@ -23,19 +23,17 @@ struct HomeView: View {
                 Text("Welcome to Z Combinator: the Demo Day VC simulator.\n\nFounders pitch in seconds. You decide in one click: Invest or Pass.\n\nYour portfolio lives or dies through hype, pivots, and crashes.\n\nEndgame: ROI score + your verdict, from Unicorn Hunter to Bag Holder.")
                     .padding(5)
                     .multilineTextAlignment(.center)
-                    .frame(width: 320,height: 210)
+                    .frame(width: 320,height: 310)
                     .padding()
                     .glassBackgroundEffect()
                     .padding(.top,20)
                     
-                    Spacer()
-            } .frame(width: 400,height: 400)
+          
+            }
             .padding()
-                .glassBackgroundEffect()
-               
-            
+
             Button ("Start Game") {
-                vm.showGame = true
+                vm.isEnd = true
             }.buttonStyle(.plain)
                 .padding()
                 .background(Color.brown.opacity(0.5))
