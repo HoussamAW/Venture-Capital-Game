@@ -32,7 +32,7 @@ struct HomeView: View {
             }
             .padding()
 
-            Button ("Ready ? click here") {
+            Button ("Start Game") {
                 vm.isEnd = true
             }.buttonStyle(.plain)
                 .padding()
@@ -49,5 +49,6 @@ struct HomeView: View {
 #Preview {
     let VM = VCViewModel()
     HomeView(vm:VM)
+        
  
 }
