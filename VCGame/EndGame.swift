@@ -14,15 +14,30 @@ struct EndGame: View {
         [Deal(totalInvest: Double(vm.totalInvest), roi: Double(vm.totalInvest))]
     }
     var body: some View {
-        Chart3D(deals) { d in
-            PointMark(
-                x: .value("Total Invest", d.totalInvest),
-                y: .value("ROI", d.roi))
+        if vm.restartGame {
+            ContentView()
+        } else  {
+            Chart3D(deals) { d in
+                PointMark(
+                    x: .value("Total Invest", d.totalInvest),
+                    y: .value("ROI", d.roi))
+            }
+            .chartXAxisLabel("Total Invest")
+            .chartYAxisLabel("ROI")
+
+            Button {
+                vm.restartGame = true
+            }label: {
+               Text("Start game again")
+                .padding()
+                .background(Color.brown.opacity(0.5))
+                .glassBackgroundEffect()
+                .padding()
+            } .buttonStyle(.plain)
         }
-        .chartXAxisLabel("Total Invest")
-        .chartYAxisLabel("ROI")
     }
 }
+
 #Preview {
     let VM = VCViewModel()
     EndGame(vm:VM)
