@@ -6,49 +6,23 @@
 //
 
 import SwiftUI
+import Charts
 
 struct EndGame: View {
     let vm: VCViewModel
+    var deals: [Deal] {
+        [Deal(totalInvest: Double(vm.totalInvest), roi: Double(vm.totalInvest))]
+    }
     var body: some View {
-        if vm.restartGame {
-            ContentView()
-        } else  {
-            VStack {
-                Text("Result")
-                    .font(.title2)
-                    .bold()
-                    .padding()
-                
-                HStack(spacing:50) {
-                    VStack {
-                        Text("Total \nInvesting:")
-                        Text("\(vm.totalInvest)")
-                    }
-                    
-                    VStack {
-                        Text("ROI:")
-                        Text("\(vm.totalInvest)")
-                    }
-                    
-                }.padding()
-            }.padding()
-                .glassBackgroundEffect()
-            
-            
-            Button {
-                vm.restartGame = true
-            }label: {
-               Text("Start game again")
-                .padding()
-                .background(Color.brown.opacity(0.5))
-                .glassBackgroundEffect()
-                .padding()
-            } .buttonStyle(.plain)
-                   
+        Chart3D(deals) { d in
+            PointMark(
+                x: .value("Total Invest", d.totalInvest),
+                y: .value("ROI", d.roi))
         }
+        .chartXAxisLabel("Total Invest")
+        .chartYAxisLabel("ROI")
     }
 }
-
 #Preview {
     let VM = VCViewModel()
     EndGame(vm:VM)

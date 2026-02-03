@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//Model for Card
 struct PitchData: Identifiable {
     let id = UUID().uuidString
     var companyName: String
@@ -16,3 +16,13 @@ struct PitchData: Identifiable {
     var pitchInvest:Int
     
 }
+
+
+//Model for Chart
+
+struct Deal: Identifiable {
+    let id = UUID()
+    let totalInvest: Double
+    let roi: Double
+}
+
