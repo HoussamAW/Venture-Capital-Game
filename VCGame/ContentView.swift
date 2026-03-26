@@ -50,8 +50,11 @@ struct ContentView: View {
                         .padding(.bottom,20)
                     
                     Text("Problem: \(pitch.pitchProblem)")
+                        .padding()
                     Text(pitch.pitchSolution)
+                        .padding()
                     Text("Ask: $\(pitch.pitchInvest)M for 7%")
+                        .padding()
                         .multilineTextAlignment(.center)
                         .padding()
                     

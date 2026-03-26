@@ -25,18 +25,54 @@ final class VCViewModel {
         return .clear
     }
     var startup = [
-        PitchData(companyName: "ClinicalFlow",
-                  pitchProblem:  "Clinics are overwhelmed, staff is expensive.",
-                  pitchSolution: "We automate patient intake and billing for small clinics in under 10 minutes.",
-                  pitchInvest: 500),
-        PitchData(companyName: "ShelfSense",
-                  pitchProblem: "convenience stores, small chains.",
-                  pitchSolution: "AI that predicts retail stockouts 7 days early using POS + local demand signals",
-                  pitchInvest: 750),
-        PitchData(companyName: "DevProof",
-                  pitchProblem: "hiring teams pay per candidate",
-                  pitchSolution: "We verify developers’ skills with real repo-based tests instead of fake coding screens",
-                  pitchInvest: 1000)
+        PitchData(
+            companyName: "MedBrief",
+            pitchProblem: "Doctors lose time writing clinical notes and patient summaries after every consultation.",
+            pitchSolution: "An AI copilot that turns doctor-patient conversations into structured notes, visit summaries, and billing-ready documentation in under 30 seconds.",
+            pitchInvest: 750
+        ),
+        PitchData(
+            companyName: "DockMind",
+            pitchProblem: "Small import/export businesses waste hours chasing shipping documents, customs forms, and supplier emails.",
+            pitchSolution: "A workflow platform that automatically collects, verifies, and organizes shipping documents from emails, PDFs, and portals in one shared dashboard.",
+            pitchInvest: 600
+        ),
+        PitchData(
+            companyName: "GridPulse",
+            pitchProblem: "Commercial buildings pay high energy bills because HVAC systems react too late to real occupancy and weather changes.",
+            pitchSolution: "Software that predicts building energy demand in real time and automatically adjusts HVAC settings to cut costs without reducing comfort.",
+            pitchInvest: 1200
+        ),
+        PitchData(
+            companyName: "ClaimPilot",
+            pitchProblem: "Insurance brokers spend too much time manually reviewing claims, missing documents, and policy details.",
+            pitchSolution: "An AI claims assistant that reads incoming files, flags missing information, and drafts next-step recommendations for human brokers.",
+            pitchInvest: 900
+        ),
+        PitchData(
+            companyName: "FieldFix",
+            pitchProblem: "Construction teams still manage site issues with scattered WhatsApp messages, phone photos, and spreadsheets.",
+            pitchSolution: "A mobile-first platform that turns site photos and voice notes into trackable tasks, incident reports, and daily progress logs.",
+            pitchInvest: 800
+        ),
+        PitchData(
+            companyName: "HireLoop",
+            pitchProblem: "Growing startups lose top candidates because scheduling, feedback, and interview follow-up are painfully slow.",
+            pitchSolution: "Recruiting software that automates interview coordination, collects scorecards instantly, and alerts teams when a candidate is about to drop off.",
+            pitchInvest: 700
+        ),
+        PitchData(
+            companyName: "ShelfSignal",
+            pitchProblem: "Independent grocery stores run out of popular products because they cannot forecast demand accurately.",
+            pitchSolution: "A lightweight forecasting tool that combines sales history, weather, and local events to predict stockouts before they happen.",
+            pitchInvest: 650
+        ),
+        PitchData(
+            companyName: "DevLedger",
+            pitchProblem: "Finance teams at software companies struggle to understand engineering spend across projects, contractors, and cloud usage.",
+            pitchSolution: "A finance analytics tool that maps payroll, vendor invoices, and infrastructure costs directly to engineering projects and product teams.",
+            pitchInvest: 1100
+        )
     ]
     
     func endGame() {
@@ -76,7 +112,6 @@ final class VCViewModel {
         } else {
             offset = .zero
         }
-        
     }
 }
 
