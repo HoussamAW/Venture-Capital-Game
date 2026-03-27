@@ -9,9 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     let vm: VCViewModel
+    @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     var body: some View {
         if vm.isEnd {
-            ContentView()
+            Text("Opening game experience...")
+                   .task {
+                       await openImmersiveSpace(id: "contentView")
+                   }
         } else {
             VStack {
                 Text("Z Combinator Game")
@@ -34,6 +38,9 @@ struct HomeView: View {
 
             Button ("Start Game") {
                 vm.isEnd = true
+                Task {
+                    await openImmersiveSpace(id: "contentView")
+                }
             }.buttonStyle(.plain)
                 .padding()
                 .background(Color.brown.opacity(0.5))

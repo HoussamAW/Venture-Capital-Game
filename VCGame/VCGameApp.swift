@@ -14,6 +14,11 @@ struct VCGameApp: App {
         WindowGroup {
             HomeView(vm: vm)
         }.windowStyle(.plain)
+        
+        ImmersiveSpace(id: "contentView") {
+           ContentView()
+        }
+        
     }
 }
 

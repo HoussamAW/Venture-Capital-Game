@@ -14,15 +14,17 @@ struct PitchData: Identifiable {
     var pitchProblem: String
     var pitchSolution: String
     var pitchInvest:Int
+    var trust: Int
     
 }
 
 
 //Model for Chart
 
-struct Deal: Identifiable {
+struct PitchMetric: Identifiable {
     let id = UUID()
-    let totalInvest: Double
-    let roi: Double
+    let title: String
+    let value: Double
+  
 }
 

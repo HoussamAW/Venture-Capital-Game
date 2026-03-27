@@ -12,6 +12,7 @@ import Observation
 final class VCViewModel {
     var index = 0
     var totalInvest = 0
+    var totalRoi = 0
     var isEnd = false
     var restartGame = false
     var offset: CGSize = .zero
@@ -24,54 +25,57 @@ final class VCViewModel {
         }
         return .clear
     }
+    var roi: Int {
+        return totalRoi
+    }
     var startup = [
         PitchData(
             companyName: "MedBrief",
             pitchProblem: "Doctors lose time writing clinical notes and patient summaries after every consultation.",
             pitchSolution: "An AI copilot that turns doctor-patient conversations into structured notes, visit summaries, and billing-ready documentation in under 30 seconds.",
-            pitchInvest: 750
+            pitchInvest: 750, trust: 82
         ),
         PitchData(
             companyName: "DockMind",
             pitchProblem: "Small import/export businesses waste hours chasing shipping documents, customs forms, and supplier emails.",
             pitchSolution: "A workflow platform that automatically collects, verifies, and organizes shipping documents from emails, PDFs, and portals in one shared dashboard.",
-            pitchInvest: 600
+            pitchInvest: 600, trust: 74
         ),
         PitchData(
             companyName: "GridPulse",
             pitchProblem: "Commercial buildings pay high energy bills because HVAC systems react too late to real occupancy and weather changes.",
             pitchSolution: "Software that predicts building energy demand in real time and automatically adjusts HVAC settings to cut costs without reducing comfort.",
-            pitchInvest: 1200
+            pitchInvest: 1200, trust: 78
         ),
         PitchData(
             companyName: "ClaimPilot",
             pitchProblem: "Insurance brokers spend too much time manually reviewing claims, missing documents, and policy details.",
             pitchSolution: "An AI claims assistant that reads incoming files, flags missing information, and drafts next-step recommendations for human brokers.",
-            pitchInvest: 900
+            pitchInvest: 900, trust: 76
         ),
         PitchData(
             companyName: "FieldFix",
             pitchProblem: "Construction teams still manage site issues with scattered WhatsApp messages, phone photos, and spreadsheets.",
             pitchSolution: "A mobile-first platform that turns site photos and voice notes into trackable tasks, incident reports, and daily progress logs.",
-            pitchInvest: 800
+            pitchInvest: 800, trust: 72
         ),
         PitchData(
             companyName: "HireLoop",
             pitchProblem: "Growing startups lose top candidates because scheduling, feedback, and interview follow-up are painfully slow.",
             pitchSolution: "Recruiting software that automates interview coordination, collects scorecards instantly, and alerts teams when a candidate is about to drop off.",
-            pitchInvest: 700
+            pitchInvest: 700, trust: 79
         ),
         PitchData(
             companyName: "ShelfSignal",
             pitchProblem: "Independent grocery stores run out of popular products because they cannot forecast demand accurately.",
             pitchSolution: "A lightweight forecasting tool that combines sales history, weather, and local events to predict stockouts before they happen.",
-            pitchInvest: 650
+            pitchInvest: 650, trust: 75
         ),
         PitchData(
             companyName: "DevLedger",
             pitchProblem: "Finance teams at software companies struggle to understand engineering spend across projects, contractors, and cloud usage.",
             pitchSolution: "A finance analytics tool that maps payroll, vendor invoices, and infrastructure costs directly to engineering projects and product teams.",
-            pitchInvest: 1100
+            pitchInvest: 1100, trust: 77
         )
     ]
     
@@ -86,7 +90,8 @@ final class VCViewModel {
     
     func invest() {
         let invest = startup[index]
-        totalInvest += invest.pitchInvest
+        totalInvest += invest.pitchInvest //calcul total Invest
+        totalRoi += invest.pitchInvest * invest.trust / 100 //calcul ROI
     }
     
     func swipe() {
