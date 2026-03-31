@@ -11,11 +11,11 @@ import SwiftUI
 struct VCGameApp: App {
     @State private var vm = VCViewModel()
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "HomeView") {
             HomeView(vm: vm)
         }.windowStyle(.plain)
         
-        ImmersiveSpace(id: "contentView") {
+        ImmersiveSpace(id: "ContentView") {
            ContentView()
         }
         

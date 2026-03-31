@@ -65,7 +65,7 @@ struct ContentView: View {
                 .glassBackgroundEffect()
                 .offset(x: vm.offset.width, y: vm.offset.height)
                 .offset(z: -850)
-                .offset(y: -2000)
+                .offset(y: -1200)
                 .rotationEffect(.degrees(Double(vm.offset.width / 20)))
                 .gesture(
                     DragGesture()
