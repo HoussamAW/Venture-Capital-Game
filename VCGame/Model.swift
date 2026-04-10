@@ -20,7 +20,6 @@ struct PitchData: Identifiable {
 
 
 //Model for Chart
-
 struct PitchMetric: Identifiable {
     let id = UUID()
     let title: String
